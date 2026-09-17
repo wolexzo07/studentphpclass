@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 17, 2026 at 10:36 AM
+-- Generation Time: Sep 17, 2026 at 01:37 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,6 +31,8 @@ CREATE TABLE `student` (
   `id` int(11) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
+  `matric_no` varchar(50) NOT NULL,
+  `password` text NOT NULL,
   `level` varchar(100) NOT NULL,
   `age` int(11) NOT NULL,
   `gender` enum('','male','female') NOT NULL,
@@ -42,11 +44,11 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id`, `first_name`, `last_name`, `level`, `age`, `gender`, `date_time`, `is_status`) VALUES
-(2354, 'Ayodeji', 'Wasiu', '200 L', 25, 'male', '2026-09-09 13:20:40', '1'),
-(2356, 'Ibrahim', 'Yekini', '200 L', 27, 'male', '2026-09-09 13:22:58', '1'),
-(2357, 'Babalola', 'Ezekiel', '300 L', 27, 'male', '2026-09-09 13:24:36', '1'),
-(2358, 'Omoniyi', 'Rose', '200 L', 24, 'female', '2026-09-09 13:25:02', '1');
+INSERT INTO `student` (`id`, `first_name`, `last_name`, `matric_no`, `password`, `level`, `age`, `gender`, `date_time`, `is_status`) VALUES
+(2354, 'Ayodeji', 'Wasiu', 'ND/2019/001', 'e5636c0dc04799b00145f04bbafecfb0883d8df198e34c5d50c98b83f0ca052974f7995f', '500 L', 25, 'male', '2026-09-09 13:20:40', '1'),
+(2356, 'Ibrahim', 'Yekini', 'ND/2019/002', 'a89e69c9e6b080e124d280a22ae38e2adece316afe128feeb904dad290086d81853a7978', '200 L', 27, 'male', '2026-09-09 13:22:58', '1'),
+(2357, 'Babalola', 'Ezekiel', 'ND/2019/003', 'e5636c0dc04799b00145f04bbafecfb0883d8df198e34c5d50c98b83f0ca052974f7995f', '300 L', 27, 'male', '2026-09-09 13:24:36', '1'),
+(2358, 'Omoniyi', 'Rose', 'ND/2019/004', 'a89e69c9e6b080e124d280a22ae38e2adece316afe128feeb904dad290086d81853a7978', '200 L', 24, 'female', '2026-09-09 13:25:02', '1');
 
 --
 -- Indexes for dumped tables
