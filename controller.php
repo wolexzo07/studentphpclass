@@ -4,7 +4,9 @@
 
     include_once("functions.php");
 
-    if(isset($_POST["_updateToken"]) && !empty($_POST["_updateToken"])){
+    include_once("loginExtension.php");
+
+    if(isset($_POST["_updateToken"]) && !empty($_POST["_updateToken"])){ // handle update request
 
         $first = sanitizer($_POST["first"], $connection);
 
@@ -18,49 +20,65 @@
 
         $pid = sanitizer($_POST["pid"], $connection);
 
+        $mid = sanitizer($_POST["mid"], $connection); // matric no to be updated
 
-        $response = "SELECT COUNT(*) AS counted FROM student WHERE id='$pid'";
+        $midc = sanitizer($_POST["midCurrent"], $connection); // current matric no
 
-        if($read = mysqli_query($connection , $response)){
 
-            $getRec = mysqli_fetch_assoc($read);
+        $pass = sanitizer($_POST["pass"], $connection);
 
-            $getCount = $getRec["counted"];
-
-             if($getCount > 0){
-                
-                    $updatesql = "UPDATE student SET first_name='$first',last_name='$last',age='$age',level='$level',gender='$gen' WHERE id='$pid'";
-
-                    if($read = mysqli_query($connection,$updatesql)){
-                         ?>
-                            <script>
-                                alert("Record updated successfully!");
-                                window.location="fetch.php";
-                            </script>
-                        <?php
-                    }else{
-                          ?>
-                            <script>
-                                alert("Record update failed!");
-                                window.location="fetch.php";
-                            </script>
-                        <?php
-                    }
-
-             }else{
-
-                ?>
-                    <script>
-                        alert("Parameter was tampered!");
-                        window.location="fetch.php";
-                    </script>
-                <?php
-
-             }
+        if($midc == ""){
             
+            $cmd = "nil";
+
+        }else{
+
+            $cmd = "nnil";
+
         }
 
 
+        // Preventing duplicate matric no
+
+        $response = "SELECT COUNT(*) AS counted FROM student WHERE matric_no='$mid' LIMIT 1";
+
+        if($read = mysqli_query($connection , $response)){
+
+             $getRec = mysqli_fetch_assoc($read);
+
+             $getCount = $getRec["counted"];
+
+             if($cmd == "nnil" && $midc == $mid){ // if current matric no is equal to the new matric no, then update the record
+
+                $toks = "ok";
+
+                include_once("controllerExtension.php");
+
+             }else{
+
+                    if($getCount > 0){ // checking if matric no exists
+
+                        ?>
+                            <script>
+
+                                alert("Matric no already exists!");
+
+                                window.location="fetch.php";
+
+                            </script>
+                        <?php
+
+                    }else{ // if matric no does not exist, then update the record
+
+                        $toks = "ok";
+
+                        include_once("controllerExtension.php");
+        
+                    }
+
+             }
+
+        }
 
     }
 ?>

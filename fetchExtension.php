@@ -19,6 +19,7 @@
         <table border="1px" style="margin-top:10pt;" width="100%" cellspacing="0px" cellpadding="10px">
                 <tr align="left">
                     <th>No.</th>
+                    <th>Mat No.</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Status</th>
@@ -45,10 +46,12 @@
             $level = $row["level"];
             $age = $row["age"];
             $dated = $row["date_time"];
+            $mid = $row["matric_no"];
 
             ?>
                 <tr>
                     <td><?php echo $counter;?></td>
+                    <td><?php echo $mid;?></td>
                     <td><?php echo $first;?></td>
                     <td><?php echo $last;?></td>
                     <td><?php echo $status;?></td>

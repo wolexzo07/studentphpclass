@@ -1,5 +1,15 @@
 <?php
-    function sanitizer($value , $connection){
+   
+   function encryptPass($input){
+    
+        $salt = "AsDbVxcGjhTyUjH125673881?#";
+
+        $hash = md5($input.$salt).sha1($salt.$input);
+
+        return $hash;
+   }
+   
+   function sanitizer($value , $connection){
 
         //include_once("connection.php");
 

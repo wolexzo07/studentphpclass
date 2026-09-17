@@ -38,6 +38,8 @@
                                 $level = $row["level"];
                                 $age = $row["age"];
                                 $dated = $row["date_time"];
+                                $matricno = $row["matric_no"];
+                                $password = $row["password"];
 
                                 ?>
                                     <style>
@@ -63,6 +65,14 @@
 
                                         <input type="text" class="cl-text" name="age" value="<?php echo $age;?>"/>
                                         
+                                        <p class="ml-text">Enter matric no</p>
+
+                                        <input type="text" class="cl-text" name="mid" value="<?php echo $matricno;?>"/>
+                                        
+                                        <p class="ml-text">Enter Password</p>
+
+                                        <input type="password" class="cl-text" name="pass"/>
+                                        
                                         <p class="ml-text">Choose Gender</p>
 
                                         <input type="radio" <?php echo switchitup($gen , "M");?> class="cl-text" name="gen" value="male"/> Male
@@ -71,6 +81,9 @@
 
 
                                         <input type="hidden" name="pid" value="<?php echo $_GET['pid'];?>"/>
+
+                                        <input type="hidden" name="midCurrent" value="<?php echo $matricno;?>"/>
+
                                         
                                         <input type="hidden" name="_updateToken" value="<?php echo sha1(uniqid());?>"/>
 
