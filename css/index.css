@@ -1,0 +1,13 @@
+.panel{
+    background-color: white;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    bottom:100px;
+    right: 100px;
+    opacity:0.9;
+    display:none;
+    z-index:100;
+    border:0px solid black;
+    box-shadow: 5px 5px 5px 5px lightgray;
+}

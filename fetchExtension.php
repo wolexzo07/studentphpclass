@@ -15,8 +15,10 @@
             include_once("search.php");
 
         ?>
-        <a href="addNew.php">Add New Record</a>
-        <table border="1px" style="margin-top:10pt;" width="100%" cellspacing="0px" cellpadding="10px">
+       
+       <button class="btn btn-primary mt-3 openPanel"><i class="bi bi-person-plus"></i> &nbsp;&nbsp;Add New Record</button>
+
+        <table class="table table-info table-striped table-hover mt-3">
                 <tr align="left">
                     <th>No.</th>
                     <th>Mat No.</th>
