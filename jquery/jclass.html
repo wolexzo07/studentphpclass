@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .weared {
+                color: blue;
+                border:3px solid black;
+                background-color: yellow;
+                padding:15px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1 class="wear">I am just alone...</h1>
+
+        <button class="addclass">Add Class</button>
+        <button class="removeclass">Remove Class</button>
+        <button class="toggleclass">Toggle Class</button>
+
+        <script src="js/jquery-4.0.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                $(".addclass").click(function(){
+                    $(".wear").addClass("weared");
+                });
+                
+                $(".removeclass").click(function(){
+                    $(".wear").removeClass("weared");
+                });
+                
+                $(".toggleclass").click(function(){
+                    $(".wear").toggleClass("weared");
+                });
+
+
+            });
+        </script>
+    </body>
+</html>

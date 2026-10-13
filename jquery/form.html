@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        <form>
+            <select class="changeit">
+                <option value="">Choose ....</option>
+                <option value="one">Compulsory</option>
+                <option value="two">NOt compulsory</option>
+            </select>
+
+            <p class="show-response"></p>
+
+            <input type="text" class="nin" style="display:none;" name="nin" placeholder="Kindly enter NIN"/>
+            <br/>
+            <input type="text" class="preload" name="preload" placeholder="preload"/>
+            <br/>
+            <p class="show-input"></p>
+            <br/><br/>
+            <input type="submit" value="Submit" class="submitbtn">
+        </form>     
+        
+        <br/><br/><br/>
+        <form>
+            <input type="password" name="pass" placeholder="Enter your password" id="pass">
+            <br/><br/><br/>
+        </form>
+
+        <button class="hidepass">Hide Pass</button>
+        <button class="showpass">Show Pass</button>
+        
+        <script src="js/jquery-4.0.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                $(".preload").keyup(function(){
+                    var getValue = $(".preload").val();
+                    $(".show-input").html("You entered : <b>"+getValue+"<b>");
+                });
+
+                $(".changeit").change(function(){
+                    var selectedElement = $(this).val();
+                    $(".show-response").text(selectedElement);
+
+                    if(selectedElement == "one"){
+                        $(".nin").show(500);
+                        $(".nin").attr("required","required");
+                    }
+                    
+                    if(selectedElement == "two"){
+                        $(".nin").hide(500);
+                        $(".nin").removeAttr("required");
+                    }
+                });
+                    
+                $(".hidepass").click(function(){
+                    $("#pass").attr("type","password")
+                });
+
+                $(".showpass").click(function(){
+                    $("#pass").attr("type","text")
+                });
+
+            });
+        </script>
+    </body>
+</html>

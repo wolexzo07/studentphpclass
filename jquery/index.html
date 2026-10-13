@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        <h1 class="textify">I am waiting for an update....</h1>
+
+        <button class="hidebtn">hide</button>
+        <button class="showbtn">show</button>
+         <button class="stopbtn">Stop</button>
+        <button class="togglebtn">Toggle</button>
+        <button class="slideupbtn">slide uP!</button>
+
+        <button class="slidedownbtn">slide down!</button>
+        <button class="stbtn">slide Toggle!</button>
+
+        <button class="fadeinbtn">Fade In!</button>
+        <button class="fadeoutbtn">Fade Out!</button>
+        <button class="ftbtn">Fade Toggle!</button>
+       
+        <button class="textbtn">Text change</button>
+        <button class="htmlbtn">Html change</button>
+
+        
+        <script src="js/jquery-4.0.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                $(".htmlbtn").click(function(){
+                    $(".textify").html("<u>I am changed by HTML</u>");
+                });
+                
+                $(".textbtn").click(function(){
+                    $(".textify").text("I am changed by TEXT");
+                });
+                
+                $(".ftbtn").click(function(){
+                    $(".textify").fadeToggle(500);
+                });
+                
+                $(".fadeinbtn").click(function(){
+                    $(".textify").fadeIn(500);
+                });
+                
+                $(".fadeoutbtn").click(function(){
+                    $(".textify").fadeOut(500);
+                });
+                
+                $(".stbtn").click(function(){
+                    $(".textify").slideToggle(500);
+                });
+                
+                $(".slidedownbtn").click(function(){
+                    $(".textify").slideDown(500);
+                });
+                
+                $(".slideupbtn").click(function(){
+                    $(".textify").slideUp(500);
+                });
+                
+                $(".hidebtn").click(function(){
+                    $(".textify").hide(2000);
+                });
+                
+                $(".showbtn").click(function(){
+                    $(".textify").show(2000);
+                });
+                
+                $(".stopbtn").click(function(){
+                    $(".textify").stop();
+                });
+                
+                $(".togglebtn").click(function(){
+                    $(".textify").toggle(2000);
+                });
+
+            });
+        </script>
+    </body>
+</html>
